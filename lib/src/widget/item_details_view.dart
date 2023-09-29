@@ -58,14 +58,52 @@ class ItemDetailsView extends StatelessWidget {
                       title: Text(
                         "Pertemuan ${index + 1}",
                         style: const TextStyle(
-                          fontSize: 18,
+                          fontSize: 15,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       children: <Widget>[
-                        ListTile(
-                          title: Text(content.judul),
-                          subtitle: Text(content.deskripsi),
+                        // ListTile(
+                        //   title: Text(content.judul),
+                        //   subtitle: Text(content.deskripsi),
+                        // ),
+
+                        Container(
+                          margin: const EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(5)),
+                            boxShadow: [
+                              BoxShadow(
+                                offset: const Offset(
+                                  5.0,
+                                  5.0,
+                                ),
+                                color: Colors.grey,
+                                blurRadius: 5.0,
+                                spreadRadius: 2.0,
+                              ),
+                              BoxShadow(
+                                color: Colors.white,
+                                offset: const Offset(0.0, 0.0),
+                                blurRadius: 0.0,
+                                spreadRadius: 0.0,
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                content.deskripsi,
+                                style: TextStyle(fontSize: 12),
+                              ),
+                              Icon(
+                                Icons.check_circle,
+                                color: Color(0xFFC1C1C1),
+                              )
+                            ],
+                          ),
                         ),
                       ],
                     );

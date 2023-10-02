@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class ItemDetailsView extends StatelessWidget {
   final MataKuliah item;
+
   const ItemDetailsView({
     super.key,
     required this.item,
@@ -17,12 +18,26 @@ class ItemDetailsView extends StatelessWidget {
         length: 2,
         child: Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.blue.shade900,
-              title: Text(
-                "${item.name} ${item.id}",
-                style: const TextStyle(
-                  fontSize: 15,
-                ),
+              backgroundColor: const Color(0xFF0D47A1),
+              titleSpacing: 5,
+              title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "${item.name}",
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Text(
+                    "${item.id}",
+                    style: const TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ],
               ),
               bottom: const TabBar(tabs: [
                 Tab(
@@ -41,7 +56,8 @@ class ItemDetailsView extends StatelessWidget {
                     children: [
                       Icon(Icons.people),
                       SizedBox(width: 6),
-                      Text('Colleges'),
+                      Text('Colleges',
+                          style: TextStyle(fontWeight: FontWeight.w600)),
                     ],
                   ),
                 ),
@@ -69,40 +85,31 @@ class ItemDetailsView extends StatelessWidget {
                         // ),
 
                         Container(
-                          margin: const EdgeInsets.all(10),
-                          padding: const EdgeInsets.all(10),
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(5)),
-                            boxShadow: [
-                              BoxShadow(
-                                offset: const Offset(
-                                  5.0,
-                                  5.0,
+                          margin: EdgeInsets.all(10),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              shadowColor: Colors.black,
+                              padding: EdgeInsets.all(10),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  content.deskripsi,
+                                  style: TextStyle(
+                                      fontSize: 12, color: Colors.black),
                                 ),
-                                color: Colors.grey,
-                                blurRadius: 5.0,
-                                spreadRadius: 2.0,
-                              ),
-                              BoxShadow(
-                                color: Colors.white,
-                                offset: const Offset(0.0, 0.0),
-                                blurRadius: 0.0,
-                                spreadRadius: 0.0,
-                              ),
-                            ],
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                content.deskripsi,
-                                style: TextStyle(fontSize: 12),
-                              ),
-                              Icon(
-                                Icons.check_circle,
-                                color: Color(0xFFC1C1C1),
-                              )
-                            ],
+                                Icon(
+                                  Icons.check_circle,
+                                  color: Color(0xFFC1C1C1),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ],

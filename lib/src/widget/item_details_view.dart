@@ -1,4 +1,5 @@
 import 'package:absen_app/src/models/mata_kuliah.dart';
+import 'package:absen_app/src/view/detail_pertemuan_view.dart';
 import 'package:flutter/material.dart';
 
 class ItemDetailsView extends StatelessWidget {
@@ -87,7 +88,13 @@ class ItemDetailsView extends StatelessWidget {
                         Container(
                           margin: EdgeInsets.all(10),
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                context,
+                                DetailPertemuanView.routeName,
+                                arguments: item,
+                              );
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.white,
                               shape: RoundedRectangleBorder(

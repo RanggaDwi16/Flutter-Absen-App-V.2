@@ -28,10 +28,6 @@ class HomeView extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.search),
-          ),
-          IconButton(
-            onPressed: () {},
             icon: Icon(Icons.notifications),
           ),
         ],
